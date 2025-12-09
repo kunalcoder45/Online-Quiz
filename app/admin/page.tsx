@@ -32,7 +32,7 @@ export default function AdminPanel() {
   const wsRef = useRef<WebSocket | null>(null);
 
   useEffect(() => {
-    const websocket = new WebSocket('ws://localhost:3001');
+    const websocket = new WebSocket(process.env.NEXT_PUBLIC_WEBSOCKET_URL!);
     
     websocket.onopen = () => {
       websocket.send(JSON.stringify({ type: 'admin_connect' }));

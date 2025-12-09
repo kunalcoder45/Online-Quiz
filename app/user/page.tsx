@@ -35,7 +35,7 @@ export default function UserPage() {
     const initializeUser = () => {
       setUserName(name);
 
-      const websocket = new WebSocket('ws://localhost:3001');
+      const websocket = new WebSocket(process.env.NEXT_PUBLIC_WEBSOCKET_URL!);
       
       websocket.onopen = () => {
         websocket.send(JSON.stringify({

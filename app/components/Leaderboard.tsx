@@ -13,7 +13,7 @@ export default function Leaderboard() {
   const [leaders, setLeaders] = useState<Leader[]>([]);
 
   useEffect(() => {
-    const ws = new WebSocket('ws://localhost:3001');
+    const ws = new WebSocket(process.env.NEXT_PUBLIC_WEBSOCKET_URL!);
     
     ws.onopen = () => {
       ws.send(JSON.stringify({ type: 'get_leaderboard' }));
